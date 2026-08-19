@@ -654,7 +654,56 @@ content="Insurance solutions for businesses, automobile dealerships and families
 </footer>
 
 
-<script src="script.js"></script>
+<!-- JOEY AI CHATBOT -->
+<div class="joey-widget">
+
+  <div class="joey-chat" id="joeyChat">
+
+    <div class="joey-header">
+      <div class="joey-avatar">J</div>
+
+      <div>
+        <strong>Joey</strong>
+        <span>Vital Insurance Assistant</span>
+      </div>
+
+      <button id="closeJoey" aria-label="Close chat">×</button>
+    </div>
+
+    <div class="joey-messages" id="joeyMessages">
+
+      <div class="joey-message bot">
+        Hi 👋 I'm Joey, Vital Insurance's AI assistant.
+        How can I help you today?
+      </div>
+
+    </div>
+
+    <div class="joey-suggestions">
+      <button>Motor Insurance</button>
+      <button>Business Insurance</button>
+      <button>Claim Help</button>
+    </div>
+
+    <form class="joey-input" id="joeyForm">
+      <input
+        type="text"
+        id="joeyInput"
+        placeholder="Ask Joey anything..."
+        autocomplete="off"
+      >
+      <button type="submit">↑</button>
+    </form>
+
+  </div>
+
+
+  <button class="joey-button" id="openJoey" aria-label="Chat with Joey">
+    <span class="joey-icon">✦</span>
+    <span>Ask Joey</span>
+  </button>
+
+</div>
 
 </body>
 </html>
