@@ -4,9 +4,9 @@
 
 const buttons = document.querySelectorAll(".choice");
 
-buttons.forEach((button) => {
+buttons.forEach(button => {
   button.addEventListener("click", () => {
-    buttons.forEach((item) => item.classList.remove("active"));
+    buttons.forEach(x => x.classList.remove("active"));
     button.classList.add("active");
   });
 });
@@ -14,13 +14,17 @@ buttons.forEach((button) => {
 const enquiryForm = document.getElementById("enquiryForm");
 
 if (enquiryForm) {
-  enquiryForm.addEventListener("submit", (event) => {
-    event.preventDefault();
+  enquiryForm.addEventListener("submit", function (e) {
+    e.preventDefault();
 
-    document.getElementById("formMessage").textContent =
-      "Thanks! Your enquiry has been recorded. We will connect with you shortly.";
+    const message = document.getElementById("formMessage");
 
-    event.target.reset();
+    if (message) {
+      message.textContent =
+        "Thanks! Your enquiry has been recorded. We will connect with you shortly.";
+    }
+
+    this.reset();
   });
 }
 
@@ -29,122 +33,172 @@ if (enquiryForm) {
    JOEY CHATBOT
 ========================= */
 
-const openJoey = document.getElementById("openJoey");
-const closeJoey = document.getElementById("closeJoey");
-const joeyChat = document.getElementById("joeyChat");
-const joeyForm = document.getElementById("joeyForm");
-const joeyInput = document.getElementById("joeyInput");
-const joeyMessages = document.getElementById("joeyMessages");
+document.addEventListener("DOMContentLoaded", function () {
+
+  const openJoey = document.getElementById("openJoey");
+  const closeJoey = document.getElementById("closeJoey");
+  const joeyChat = document.getElementById("joeyChat");
+
+  const joeyForm = document.getElementById("joeyForm");
+  const joeyInput = document.getElementById("joeyInput");
+  const joeyMessages = document.getElementById("joeyMessages");
+
+  if (!openJoey || !joeyChat) {
+    console.log("Joey chatbot elements not found");
+    return;
+  }
 
 
-/* Open chat */
+  /* OPEN JOEY */
 
-if (openJoey) {
-  openJoey.addEventListener("click", () => {
+  openJoey.addEventListener("click", function () {
     joeyChat.classList.add("open");
-    joeyInput.focus();
   });
-}
 
 
-/* Close chat */
+  /* CLOSE JOEY */
 
-if (closeJoey) {
-  closeJoey.addEventListener("click", () => {
-    joeyChat.classList.remove("open");
-  });
-}
-
-
-/* Add message */
-
-function addJoeyMessage(message, type = "bot") {
-  const messageElement = document.createElement("div");
-
-  messageElement.className = `joey-message ${type}`;
-  messageElement.textContent = message;
-
-  joeyMessages.appendChild(messageElement);
-
-  joeyMessages.scrollTop = joeyMessages.scrollHeight;
-}
-
-
-/* Demo insurance replies for now */
-
-function getJoeyReply(message) {
-  const text = message.toLowerCase();
-
-  if (
-    text.includes("motor") ||
-    text.includes("bike") ||
-    text.includes("car") ||
-    text.includes("vehicle")
-  ) {
-    return "I can help with motor insurance 😊. We can guide you regarding policy renewal, third-party cover, comprehensive insurance, zero depreciation and more. What vehicle do you need insurance for?";
+  if (closeJoey) {
+    closeJoey.addEventListener("click", function () {
+      joeyChat.classList.remove("open");
+    });
   }
 
-  if (
-    text.includes("business") ||
-    text.includes("sme") ||
-    text.includes("fire") ||
-    text.includes("burglary")
-  ) {
-    return "Vital Insurance helps businesses with solutions such as fire and burglary insurance. Tell me a little about your business and what you would like to protect.";
+
+  /* ADD MESSAGE */
+
+  function addMessage(text, type) {
+
+    const message = document.createElement("div");
+
+    message.className = "joey-message " + type;
+
+    message.textContent = text;
+
+    joeyMessages.appendChild(message);
+
+    joeyMessages.scrollTop = joeyMessages.scrollHeight;
   }
 
-  if (
-    text.includes("claim") ||
-    text.includes("accident") ||
-    text.includes("damage")
-  ) {
-    return "I'm sorry you're dealing with that. I can help explain the claims process and the documents you may need. Please tell me what type of insurance claim you have.";
+
+  /* JOEY RESPONSE */
+
+  function getJoeyReply(message) {
+
+    const text = message.toLowerCase();
+
+
+    if (
+      text.includes("motor") ||
+      text.includes("car") ||
+      text.includes("bike") ||
+      text.includes("vehicle")
+    ) {
+
+      return "Sure! We can help you with motor and vehicle insurance. Tell me whether you need insurance for a car, bike, commercial vehicle or dealership.";
+    }
+
+
+    if (
+      text.includes("business") ||
+      text.includes("sme") ||
+      text.includes("company")
+    ) {
+
+      return "We provide insurance solutions for businesses and SMEs, including protection for assets, operations and business risks.";
+    }
+
+
+    if (
+      text.includes("claim") ||
+      text.includes("accident")
+    ) {
+
+      return "We can help you understand the claims process. Please share your policy type and briefly tell us what happened.";
+    }
+
+
+    if (
+      text.includes("contact") ||
+      text.includes("phone") ||
+      text.includes("number")
+    ) {
+
+      return "You can reach Vital Insurance at +91 99105 80468 or +91 93547 94250.";
+    }
+
+
+    if (
+      text.includes("hello") ||
+      text.includes("hi") ||
+      text.includes("hey")
+    ) {
+
+      return "Hi! 👋 I'm Joey. I can help you with motor insurance, business insurance, claims assistance or general questions.";
+    }
+
+
+    return "Thanks for your message! Our team at Vital Insurance can help you with insurance, dealership partnerships and claims assistance. Could you tell me a little more about what you need?";
   }
 
-  if (
-    text.includes("health") ||
-    text.includes("family")
-  ) {
-    return "We can help you understand personal and family insurance options. Tell me how many people you would like to insure and their approximate age group.";
+
+  /* SEND MESSAGE */
+
+  if (joeyForm) {
+
+    joeyForm.addEventListener("submit", function (e) {
+
+      e.preventDefault();
+
+      const userMessage = joeyInput.value.trim();
+
+      if (!userMessage) return;
+
+
+      addMessage(userMessage, "user");
+
+      joeyInput.value = "";
+
+
+      setTimeout(function () {
+
+        const reply = getJoeyReply(userMessage);
+
+        addMessage(reply, "bot");
+
+      }, 500);
+
+    });
+
   }
 
-  return "Thanks for your question! 😊 I'm Joey, Vital Insurance's assistant. I can help you understand motor, business, personal insurance and claims. Tell me a little more about what you need.";
-}
+
+  /* SUGGESTION BUTTONS */
+
+  const suggestions =
+    document.querySelectorAll(".joey-suggestions button");
 
 
-/* Send message */
+  suggestions.forEach(button => {
 
-function sendJoeyMessage(message) {
-  if (!message.trim()) return;
+    button.addEventListener("click", function () {
 
-  addJoeyMessage(message, "user");
+      const question = this.textContent;
 
-  joeyInput.value = "";
-
-  setTimeout(() => {
-    const reply = getJoeyReply(message);
-    addJoeyMessage(reply, "bot");
-  }, 600);
-}
+      addMessage(question, "user");
 
 
-/* Form submit */
+      setTimeout(function () {
 
-if (joeyForm) {
-  joeyForm.addEventListener("submit", (event) => {
-    event.preventDefault();
+        addMessage(
+          getJoeyReply(question),
+          "bot"
+        );
 
-    sendJoeyMessage(joeyInput.value);
+      }, 500);
+
+    });
+
   });
-}
 
-
-/* Suggestion buttons */
-
-const joeySuggestions = document.querySelectorAll(".joey-suggestions button");
-
-joeySuggestions.forEach((button) => {
-  button.addEventListener("click", () => {
-    sendJoeyMessage(button.textContent);
-  });
 });
