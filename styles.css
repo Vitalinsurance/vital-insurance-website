@@ -3,7 +3,282 @@
 }
 
 html {
-  scroll-behavior: smooth;
+  scroll-behavior: smooth;/* =========================
+   JOEY CHATBOT
+========================= */
+
+.joey-widget {
+  position: fixed;
+  right: 30px;
+  bottom: 30px;
+  z-index: 9999;
+}
+
+/* ASK JOEY BUTTON */
+
+.joey-button {
+  background: #182b3d;
+  color: white;
+  border: none;
+  padding: 16px 22px;
+
+  display: flex;
+  align-items: center;
+  gap: 10px;
+
+  font-family: "DM Sans", sans-serif;
+  font-size: 14px;
+  font-weight: 600;
+
+  cursor: pointer;
+
+  box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+}
+
+.joey-button:hover {
+  background: #243d55;
+}
+
+.joey-icon {
+  font-size: 18px;
+}
+
+/* CHAT WINDOW */
+
+.joey-chat {
+  position: absolute;
+  right: 0;
+  bottom: 72px;
+
+  width: 380px;
+  max-width: calc(100vw - 40px);
+  height: 520px;
+
+  background: #faf9f6;
+  border: 1px solid #d7d8d5;
+
+  box-shadow: 0 20px 60px rgba(0,0,0,0.22);
+
+  display: flex;
+  flex-direction: column;
+
+  opacity: 0;
+  visibility: hidden;
+
+  transform: translateY(20px);
+
+  transition: opacity 0.25s ease,
+              transform 0.25s ease,
+              visibility 0.25s;
+}
+
+.joey-chat.open {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+}
+
+/* HEADER */
+
+.joey-header {
+  background: #182b3d;
+  color: white;
+
+  padding: 20px;
+
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.joey-avatar {
+  width: 42px;
+  height: 42px;
+
+  border-radius: 50%;
+
+  background: #f4f3f0;
+  color: #182b3d;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  font-family: "Playfair Display", serif;
+  font-size: 22px;
+}
+
+.joey-header strong {
+  display: block;
+  font-size: 16px;
+}
+
+.joey-header span {
+  display: block;
+
+  font-size: 11px;
+  color: #b8c1ca;
+
+  margin-top: 3px;
+}
+
+#closeJoey {
+  margin-left: auto;
+
+  background: transparent;
+  border: none;
+
+  color: white;
+
+  font-size: 27px;
+  cursor: pointer;
+}
+
+/* MESSAGES */
+
+.joey-messages {
+  flex: 1;
+
+  overflow-y: auto;
+
+  padding: 20px;
+
+  display: flex;
+  flex-direction: column;
+
+  gap: 12px;
+
+  background: #f4f3f0;
+}
+
+.joey-message {
+  max-width: 85%;
+
+  padding: 13px 16px;
+
+  line-height: 1.5;
+  font-size: 14px;
+}
+
+.joey-message.bot {
+  background: white;
+
+  color: #243548;
+
+  align-self: flex-start;
+
+  border: 1px solid #e0e1de;
+}
+
+.joey-message.user {
+  background: #182b3d;
+
+  color: white;
+
+  align-self: flex-end;
+}
+
+/* SUGGESTIONS */
+
+.joey-suggestions {
+  padding: 12px 15px;
+
+  display: flex;
+  gap: 7px;
+  flex-wrap: wrap;
+
+  border-top: 1px solid #dedfdb;
+
+  background: #faf9f6;
+}
+
+.joey-suggestions button {
+  background: white;
+
+  border: 1px solid #ccd0d0;
+
+  padding: 8px 10px;
+
+  font-family: "DM Sans", sans-serif;
+  font-size: 11px;
+
+  color: #263647;
+
+  cursor: pointer;
+}
+
+.joey-suggestions button:hover {
+  background: #182b3d;
+  color: white;
+}
+
+/* INPUT */
+
+.joey-input {
+  display: flex;
+
+  padding: 14px;
+
+  border-top: 1px solid #dedfdb;
+
+  background: #faf9f6;
+}
+
+.joey-input input {
+  flex: 1;
+
+  border: 1px solid #ccd0d0;
+
+  padding: 12px;
+
+  font-family: "DM Sans", sans-serif;
+  font-size: 14px;
+}
+
+.joey-input button {
+  width: 48px;
+
+  border: none;
+
+  background: #182b3d;
+  color: white;
+
+  margin-left: 8px;
+
+  cursor: pointer;
+}
+
+/* MOBILE */
+
+@media (max-width: 600px) {
+
+  .joey-widget {
+    right: 15px;
+    bottom: 15px;
+  }
+
+  .joey-chat {
+    width: calc(100vw - 30px);
+    height: 70vh;
+    bottom: 68px;
+  }
+
+  .joey-button span:last-child {
+    display: none;
+  }
+
+  .joey-button {
+    width: 56px;
+    height: 56px;
+
+    border-radius: 50%;
+
+    padding: 0;
+
+    justify-content: center;
+  }
+
+}
 }
 
 body {
@@ -1002,217 +1277,279 @@ footer {
 
 }
 /* =========================
-   JOEY AI ASSISTANT
+ /* =========================
+   JOEY CHATBOT
 ========================= */
 
 .joey-widget {
-  position: fixed !important;
-  right: 25px !important;
-  bottom: 25px !important;
-  z-index: 99999 !important;
-  font-family: "DM Sans", sans-serif;
+  position: fixed;
+  right: 30px;
+  bottom: 30px;
+  z-index: 9999;
 }
 
+/* ASK JOEY BUTTON */
+
 .joey-button {
-  display: flex !important;
-  align-items: center !important;
-  gap: 10px !important;
+  background: #182b3d;
+  color: white;
+  border: none;
+  padding: 16px 22px;
 
-  background: #182b3d !important;
-  color: white !important;
-  border: none !important;
+  display: flex;
+  align-items: center;
+  gap: 10px;
 
-  padding: 15px 20px !important;
-  border-radius: 50px !important;
+  font-family: "DM Sans", sans-serif;
+  font-size: 14px;
+  font-weight: 600;
 
-  font-family: "DM Sans", sans-serif !important;
-  font-size: 14px !important;
-  font-weight: 600 !important;
+  cursor: pointer;
 
-  cursor: pointer !important;
-  box-shadow: 0 8px 25px rgba(0,0,0,.20) !important;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+}
+
+.joey-button:hover {
+  background: #243d55;
 }
 
 .joey-icon {
   font-size: 18px;
 }
 
+/* CHAT WINDOW */
+
 .joey-chat {
-  position: absolute !important;
-  right: 0 !important;
-  bottom: 72px !important;
+  position: absolute;
+  right: 0;
+  bottom: 72px;
 
-  width: 380px !important;
-  max-width: calc(100vw - 40px) !important;
-  height: 520px !important;
+  width: 380px;
+  max-width: calc(100vw - 40px);
+  height: 520px;
 
-  background: #faf9f6 !important;
-  border: 1px solid #d7d8d5 !important;
-  box-shadow: 0 20px 60px rgba(0,0,0,.22) !important;
+  background: #faf9f6;
+  border: 1px solid #d7d8d5;
 
-  display: flex !important;
-  flex-direction: column !important;
+  box-shadow: 0 20px 60px rgba(0,0,0,0.22);
+
+  display: flex;
+  flex-direction: column;
 
   opacity: 0;
   visibility: hidden;
+
   transform: translateY(20px);
-  transition: 0.25s ease;
+
+  transition: opacity 0.25s ease,
+              transform 0.25s ease,
+              visibility 0.25s;
 }
 
 .joey-chat.open {
-  opacity: 1 !important;
-  visibility: visible !important;
-  transform: translateY(0) !important;
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
 }
 
-.joey-header {
-  background: #182b3d !important;
-  color: white !important;
-  padding: 20px !important;
+/* HEADER */
 
-  display: flex !important;
-  align-items: center !important;
-  gap: 12px !important;
+.joey-header {
+  background: #182b3d;
+  color: white;
+
+  padding: 20px;
+
+  display: flex;
+  align-items: center;
+  gap: 12px;
 }
 
 .joey-avatar {
-  width: 42px !important;
-  height: 42px !important;
-  border-radius: 50% !important;
+  width: 42px;
+  height: 42px;
 
-  background: #f4f3f0 !important;
-  color: #182b3d !important;
+  border-radius: 50%;
 
-  display: flex !important;
-  align-items: center !important;
-  justify-content: center !important;
+  background: #f4f3f0;
+  color: #182b3d;
 
-  font-family: "Playfair Display", serif !important;
-  font-size: 22px !important;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  font-family: "Playfair Display", serif;
+  font-size: 22px;
 }
 
 .joey-header strong {
-  display: block !important;
-  font-size: 16px !important;
+  display: block;
+  font-size: 16px;
 }
 
 .joey-header span {
-  display: block !important;
-  font-size: 11px !important;
-  color: #b8c1ca !important;
-  margin-top: 3px !important;
+  display: block;
+
+  font-size: 11px;
+  color: #b8c1ca;
+
+  margin-top: 3px;
 }
 
 #closeJoey {
-  margin-left: auto !important;
-  background: transparent !important;
-  border: 0 !important;
-  color: white !important;
-  font-size: 27px !important;
-  cursor: pointer !important;
+  margin-left: auto;
+
+  background: transparent;
+  border: none;
+
+  color: white;
+
+  font-size: 27px;
+  cursor: pointer;
 }
 
+/* MESSAGES */
+
 .joey-messages {
-  flex: 1 !important;
-  overflow-y: auto !important;
-  padding: 20px !important;
+  flex: 1;
 
-  display: flex !important;
-  flex-direction: column !important;
-  gap: 12px !important;
+  overflow-y: auto;
 
-  background: #f4f3f0 !important;
+  padding: 20px;
+
+  display: flex;
+  flex-direction: column;
+
+  gap: 12px;
+
+  background: #f4f3f0;
 }
 
 .joey-message {
-  max-width: 85% !important;
-  padding: 13px 16px !important;
-  line-height: 1.5 !important;
-  font-size: 14px !important;
-  border-radius: 12px !important;
+  max-width: 85%;
+
+  padding: 13px 16px;
+
+  line-height: 1.5;
+  font-size: 14px;
 }
 
 .joey-message.bot {
-  background: white !important;
-  color: #243548 !important;
-  align-self: flex-start !important;
-  border: 1px solid #e0e1de !important;
+  background: white;
+
+  color: #243548;
+
+  align-self: flex-start;
+
+  border: 1px solid #e0e1de;
 }
 
 .joey-message.user {
-  background: #182b3d !important;
-  color: white !important;
-  align-self: flex-end !important;
+  background: #182b3d;
+
+  color: white;
+
+  align-self: flex-end;
 }
 
-.joey-suggestions {
-  padding: 12px 15px !important;
-  display: flex !important;
-  gap: 7px !important;
-  flex-wrap: wrap !important;
+/* SUGGESTIONS */
 
-  border-top: 1px solid #dedfdb !important;
-  background: #faf9f6 !important;
+.joey-suggestions {
+  padding: 12px 15px;
+
+  display: flex;
+  gap: 7px;
+  flex-wrap: wrap;
+
+  border-top: 1px solid #dedfdb;
+
+  background: #faf9f6;
 }
 
 .joey-suggestions button {
-  background: white !important;
-  border: 1px solid #ccd0d0 !important;
-  padding: 8px 10px !important;
+  background: white;
 
-  font-family: "DM Sans", sans-serif !important;
-  font-size: 11px !important;
-  color: #263647 !important;
-  cursor: pointer !important;
-  border-radius: 6px !important;
+  border: 1px solid #ccd0d0;
+
+  padding: 8px 10px;
+
+  font-family: "DM Sans", sans-serif;
+  font-size: 11px;
+
+  color: #263647;
+
+  cursor: pointer;
 }
 
+.joey-suggestions button:hover {
+  background: #182b3d;
+  color: white;
+}
+
+/* INPUT */
+
 .joey-input {
-  display: flex !important;
-  padding: 12px !important;
-  gap: 8px !important;
-  border-top: 1px solid #dedfdb !important;
-  background: white !important;
+  display: flex;
+
+  padding: 14px;
+
+  border-top: 1px solid #dedfdb;
+
+  background: #faf9f6;
 }
 
 .joey-input input {
-  flex: 1 !important;
-  padding: 12px !important;
-  border: 1px solid #d7d8d5 !important;
-  font-family: "DM Sans", sans-serif !important;
-  font-size: 14px !important;
+  flex: 1;
+
+  border: 1px solid #ccd0d0;
+
+  padding: 12px;
+
+  font-family: "DM Sans", sans-serif;
+  font-size: 14px;
 }
 
 .joey-input button {
-  width: 44px !important;
-  border: none !important;
-  background: #182b3d !important;
-  color: white !important;
-  cursor: pointer !important;
-  font-size: 18px !important;
+  width: 48px;
+
+  border: none;
+
+  background: #182b3d;
+  color: white;
+
+  margin-left: 8px;
+
+  cursor: pointer;
 }
 
+/* MOBILE */
+
 @media (max-width: 600px) {
+
   .joey-widget {
-    right: 15px !important;
-    bottom: 15px !important;
+    right: 15px;
+    bottom: 15px;
   }
 
   .joey-chat {
-    width: calc(100vw - 30px) !important;
-    height: 70vh !important;
-    bottom: 68px !important;
+    width: calc(100vw - 30px);
+    height: 70vh;
+    bottom: 68px;
   }
 
   .joey-button span:last-child {
-    display: none !important;
+    display: none;
   }
 
   .joey-button {
-    width: 56px !important;
-    height: 56px !important;
-    border-radius: 50% !important;
-    padding: 0 !important;
-    justify-content: center !important;
+    width: 56px;
+    height: 56px;
+
+    border-radius: 50%;
+
+    padding: 0;
+
+    justify-content: center;
   }
+
 }
