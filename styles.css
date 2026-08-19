@@ -1,284 +1,13 @@
+/* =========================
+   RESET & GLOBAL
+========================= */
+
 * {
   box-sizing: border-box;
 }
 
 html {
-  scroll-behavior: smooth;/* =========================
-   JOEY CHATBOT
-========================= */
-
-.joey-widget {
-  position: fixed;
-  right: 30px;
-  bottom: 30px;
-  z-index: 9999;
-}
-
-/* ASK JOEY BUTTON */
-
-.joey-button {
-  background: #182b3d;
-  color: white;
-  border: none;
-  padding: 16px 22px;
-
-  display: flex;
-  align-items: center;
-  gap: 10px;
-
-  font-family: "DM Sans", sans-serif;
-  font-size: 14px;
-  font-weight: 600;
-
-  cursor: pointer;
-
-  box-shadow: 0 10px 30px rgba(0,0,0,0.2);
-}
-
-.joey-button:hover {
-  background: #243d55;
-}
-
-.joey-icon {
-  font-size: 18px;
-}
-
-/* CHAT WINDOW */
-
-.joey-chat {
-  position: absolute;
-  right: 0;
-  bottom: 72px;
-
-  width: 380px;
-  max-width: calc(100vw - 40px);
-  height: 520px;
-
-  background: #faf9f6;
-  border: 1px solid #d7d8d5;
-
-  box-shadow: 0 20px 60px rgba(0,0,0,0.22);
-
-  display: flex;
-  flex-direction: column;
-
-  opacity: 0;
-  visibility: hidden;
-
-  transform: translateY(20px);
-
-  transition: opacity 0.25s ease,
-              transform 0.25s ease,
-              visibility 0.25s;
-}
-
-.joey-chat.open {
-  opacity: 1;
-  visibility: visible;
-  transform: translateY(0);
-}
-
-/* HEADER */
-
-.joey-header {
-  background: #182b3d;
-  color: white;
-
-  padding: 20px;
-
-  display: flex;
-  align-items: center;
-  gap: 12px;
-}
-
-.joey-avatar {
-  width: 42px;
-  height: 42px;
-
-  border-radius: 50%;
-
-  background: #f4f3f0;
-  color: #182b3d;
-
-  display: flex;
-  align-items: center;
-  justify-content: center;
-
-  font-family: "Playfair Display", serif;
-  font-size: 22px;
-}
-
-.joey-header strong {
-  display: block;
-  font-size: 16px;
-}
-
-.joey-header span {
-  display: block;
-
-  font-size: 11px;
-  color: #b8c1ca;
-
-  margin-top: 3px;
-}
-
-#closeJoey {
-  margin-left: auto;
-
-  background: transparent;
-  border: none;
-
-  color: white;
-
-  font-size: 27px;
-  cursor: pointer;
-}
-
-/* MESSAGES */
-
-.joey-messages {
-  flex: 1;
-
-  overflow-y: auto;
-
-  padding: 20px;
-
-  display: flex;
-  flex-direction: column;
-
-  gap: 12px;
-
-  background: #f4f3f0;
-}
-
-.joey-message {
-  max-width: 85%;
-
-  padding: 13px 16px;
-
-  line-height: 1.5;
-  font-size: 14px;
-}
-
-.joey-message.bot {
-  background: white;
-
-  color: #243548;
-
-  align-self: flex-start;
-
-  border: 1px solid #e0e1de;
-}
-
-.joey-message.user {
-  background: #182b3d;
-
-  color: white;
-
-  align-self: flex-end;
-}
-
-/* SUGGESTIONS */
-
-.joey-suggestions {
-  padding: 12px 15px;
-
-  display: flex;
-  gap: 7px;
-  flex-wrap: wrap;
-
-  border-top: 1px solid #dedfdb;
-
-  background: #faf9f6;
-}
-
-.joey-suggestions button {
-  background: white;
-
-  border: 1px solid #ccd0d0;
-
-  padding: 8px 10px;
-
-  font-family: "DM Sans", sans-serif;
-  font-size: 11px;
-
-  color: #263647;
-
-  cursor: pointer;
-}
-
-.joey-suggestions button:hover {
-  background: #182b3d;
-  color: white;
-}
-
-/* INPUT */
-
-.joey-input {
-  display: flex;
-
-  padding: 14px;
-
-  border-top: 1px solid #dedfdb;
-
-  background: #faf9f6;
-}
-
-.joey-input input {
-  flex: 1;
-
-  border: 1px solid #ccd0d0;
-
-  padding: 12px;
-
-  font-family: "DM Sans", sans-serif;
-  font-size: 14px;
-}
-
-.joey-input button {
-  width: 48px;
-
-  border: none;
-
-  background: #182b3d;
-  color: white;
-
-  margin-left: 8px;
-
-  cursor: pointer;
-}
-
-/* MOBILE */
-
-@media (max-width: 600px) {
-
-  .joey-widget {
-    right: 15px;
-    bottom: 15px;
-  }
-
-  .joey-chat {
-    width: calc(100vw - 30px);
-    height: 70vh;
-    bottom: 68px;
-  }
-
-  .joey-button span:last-child {
-    display: none;
-  }
-
-  .joey-button {
-    width: 56px;
-    height: 56px;
-
-    border-radius: 50%;
-
-    padding: 0;
-
-    justify-content: center;
-  }
-
-}
+  scroll-behavior: smooth;
 }
 
 body {
@@ -288,6 +17,7 @@ body {
   font-family: "DM Sans", sans-serif;
 }
 
+
 /* =========================
    HEADER
 ========================= */
@@ -296,13 +26,16 @@ body {
   height: 92px;
   background: #faf9f6;
   border-bottom: 1px solid #d7d8d5;
+
   display: flex;
   align-items: center;
+
   padding: 0 4.5%;
   gap: 35px;
+
   position: sticky;
   top: 0;
-  z-index: 100;
+  z-index: 1000;
 }
 
 .logo {
@@ -310,6 +43,7 @@ body {
   font-size: 23px;
   font-weight: 600;
   letter-spacing: -0.5px;
+
   color: #1c2d3e;
   text-decoration: none;
   white-space: nowrap;
@@ -340,6 +74,11 @@ body {
   opacity: 0.65;
 }
 
+
+/* =========================
+   BUTTONS
+========================= */
+
 .outline-btn,
 .light-btn,
 .dark-btn {
@@ -347,12 +86,14 @@ body {
   align-items: center;
   justify-content: center;
   gap: 18px;
+
   padding: 16px 24px;
+
   text-decoration: none;
   font-weight: 600;
   letter-spacing: 0.2px;
+
   border: 1px solid #273849;
-  transition: 0.25s ease;
 }
 
 .outline-btn {
@@ -360,9 +101,22 @@ body {
   background: transparent;
 }
 
-.outline-btn:hover {
+.light-btn {
+  background: #f8f7f3;
+  color: #243548;
+}
+
+.dark-btn {
   background: #182b3d;
   color: white;
+  border: 0;
+}
+
+.outline-btn:hover,
+.light-btn:hover,
+.dark-btn:hover {
+  opacity: 0.9;
+  transform: translateY(-1px);
 }
 
 .menu-btn {
@@ -377,163 +131,140 @@ body {
    HERO
 ========================= */
 
-.hero {
-  background: #182b3d;
-  color: #f8f6f0;
-}
-
 .hero-new {
-  min-height: 650px;
-  padding: 70px 5%;
+  background: #223548;
+  color: #f8f6f0;
+
+  min-height: 720px;
+
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 70px;
+
   align-items: center;
-  overflow: hidden;
+  gap: 70px;
+
+  padding: 85px 5%;
 }
 
 .hero-content {
-  max-width: 680px;
-  padding: 30px 0;
+  max-width: 720px;
 }
 
 .eyebrow {
   font-size: 12px;
   letter-spacing: 4px;
   font-weight: 700;
+
   color: #708091;
   margin-bottom: 25px;
 }
 
-.hero .eyebrow,
-.contact-banner .eyebrow {
+.hero-new .eyebrow {
   color: #b6c0ca;
 }
 
-h1,
-h2,
-h3 {
+.hero-new h1 {
   font-family: "Playfair Display", serif;
   font-weight: 400;
+
+  font-size: clamp(55px, 6vw, 92px);
+  line-height: 1.02;
+
   margin: 0;
-  color: inherit;
 }
 
-h1 {
-  font-size: clamp(54px, 5.6vw, 88px);
-  line-height: 1.04;
-  letter-spacing: -1px;
-}
+.hero-new p {
+  font-size: 20px;
+  line-height: 1.55;
 
-.hero p {
-  font-size: 19px;
-  line-height: 1.6;
   color: #b8c1ca;
-  max-width: 620px;
+
+  max-width: 650px;
   margin: 28px 0 38px;
 }
 
 .hero-actions {
   display: flex;
   align-items: center;
+  gap: 28px;
   flex-wrap: wrap;
-  gap: 25px;
-}
-
-.light-btn {
-  background: #f8f7f3;
-  color: #243548;
-}
-
-.light-btn:hover {
-  transform: translateY(-2px);
 }
 
 .hero-link {
-  color: #e5e9eb;
+  color: #f4f3f0;
   text-decoration: none;
-  font-size: 14px;
+
+  font-size: 15px;
   font-weight: 600;
-  border-bottom: 1px solid #71808b;
-  padding-bottom: 5px;
+
+  border-bottom: 1px solid rgba(255,255,255,0.5);
+  padding-bottom: 7px;
+}
+
+.hero-link:hover {
+  opacity: 0.7;
 }
 
 
-/* IMAGE SIDE */
+/* =========================
+   HERO IMAGE
+========================= */
 
 .hero-visual {
   position: relative;
-  width: 100%;
-  height: 510px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  height: 545px;
 }
 
 .hero-visual img {
   width: 100%;
   height: 100%;
+
   object-fit: cover;
-  object-position: center;
   display: block;
-  border-radius: 2px;
+
+  filter: brightness(0.85);
 }
-
-
-/* FLOATING STAT CARDS */
 
 .hero-card {
   position: absolute;
-  background: rgba(248, 247, 243, 0.96);
-  color: #1d2c3a;
-  padding: 20px 24px;
-  min-width: 170px;
-  display: flex;
-  flex-direction: column;
-  gap: 5px;
-  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.18);
+
+  background: rgba(248,247,243,0.96);
+  color: #243548;
+
+  padding: 28px 34px;
+
+  min-width: 190px;
+
+  box-shadow: 0 10px 40px rgba(0,0,0,0.12);
 }
 
 .hero-card strong {
+  display: block;
+
   font-family: "Playfair Display", serif;
-  font-size: 30px;
-  font-weight: 500;
+  font-size: 34px;
+  font-weight: 400;
 }
 
 .hero-card span {
+  display: block;
+
   font-size: 10px;
-  letter-spacing: 1.5px;
-  text-transform: uppercase;
-  color: #667481;
+  letter-spacing: 2px;
+
+  margin-top: 7px;
+
+  color: #64717c;
 }
 
 .hero-card-one {
-  left: -35px;
+  left: -38px;
   bottom: 55px;
 }
 
 .hero-card-two {
-  right: -25px;
-  top: 55px;
-}
-
-
-/* =========================
-   CONTACT BANNER
-========================= */
-
-.contact-banner {
-  background: #182b3d;
-  color: #f8f6f0;
-  padding: 115px 5%;
-}
-
-.contact-banner p {
-  font-size: 20px;
-  line-height: 1.55;
-  color: #b8c1ca;
-  max-width: 800px;
-  margin: 28px 0 0;
+  right: -28px;
+  top: 60px;
 }
 
 
@@ -544,6 +275,15 @@ h1 {
 .section {
   padding: 100px 5%;
   border-bottom: 1px solid #d8d8d4;
+}
+
+h1,
+h2,
+h3 {
+  font-family: "Playfair Display", serif;
+  font-weight: 400;
+  margin: 0;
+  color: inherit;
 }
 
 .section h2 {
@@ -570,25 +310,35 @@ h1 {
   margin: 0;
 }
 
+
+/* =========================
+   STATS
+========================= */
+
 .stats {
   margin-top: 70px;
+
   display: grid;
   grid-template-columns: repeat(3, 1fr);
+
   border: 1px solid #d3d5d3;
 }
 
 .stats div {
   min-height: 180px;
+
   padding: 35px;
+
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
+
   border-right: 1px solid #d3d5d3;
 }
 
 .stats div:last-child {
-  border: 0;
+  border-right: 0;
 }
 
 .stats strong {
@@ -600,6 +350,7 @@ h1 {
 .stats span {
   font-size: 11px;
   letter-spacing: 3px;
+
   margin-top: 12px;
   color: #64717c;
 }
@@ -617,25 +368,30 @@ h1 {
 .articles {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
+
   border: 1px solid #d2d3d0;
+
   margin-top: 60px;
 }
 
 .cards article,
 .articles article {
   padding: 38px;
+
   border-right: 1px solid #d2d3d0;
+
   min-height: 310px;
 }
 
 .cards article:last-child,
 .articles article:last-child {
-  border: 0;
+  border-right: 0;
 }
 
 .num {
   font-family: "Playfair Display", serif;
   font-size: 32px;
+
   color: #94a0a9;
   margin-bottom: 28px;
 }
@@ -658,6 +414,7 @@ h1 {
 .offices a {
   color: #243548;
   text-decoration: none;
+
   font-weight: 600;
   font-size: 14px;
 }
@@ -676,19 +433,10 @@ h1 {
   margin: 22px 0 30px;
 }
 
-.dark-btn {
-  background: #182b3d;
-  color: white;
-  border: 0;
-}
-
-.dark-btn:hover {
-  background: #294156;
-}
-
 .steps {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
+
   border: 1px solid #d2d3d0;
   margin-top: 50px;
 }
@@ -696,18 +444,22 @@ h1 {
 .steps div {
   padding: 38px;
   border-right: 1px solid #d2d3d0;
+
   min-height: 150px;
 }
 
 .steps div:last-child {
-  border: 0;
+  border-right: 0;
 }
 
 .steps span {
   font-family: "Playfair Display", serif;
+
   display: block;
+
   font-size: 30px;
   color: #98a2aa;
+
   margin-bottom: 20px;
 }
 
@@ -746,6 +498,39 @@ h1 {
 
 
 /* =========================
+   CONTACT BANNER
+========================= */
+
+.contact-banner {
+  background: #182b3d;
+  color: #f8f6f0;
+
+  padding: 115px 5%;
+}
+
+.contact-banner .eyebrow {
+  color: #b6c0ca;
+}
+
+.contact-banner h2 {
+  font-family: "Playfair Display", serif;
+
+  font-size: clamp(48px, 6vw, 80px);
+  font-weight: 400;
+}
+
+.contact-banner p {
+  font-size: 20px;
+  line-height: 1.55;
+
+  color: #b8c1ca;
+
+  max-width: 800px;
+  margin: 28px 0 0;
+}
+
+
+/* =========================
    FORM
 ========================= */
 
@@ -756,16 +541,21 @@ h1 {
 .choice-row {
   display: flex;
   flex-wrap: wrap;
+
   gap: 8px;
   margin: 45px 0;
 }
 
 .choice {
   padding: 13px 18px;
+
   background: #f8f7f4;
   border: 1px solid #cfd2d1;
+
   color: #40505f;
+
   font: 600 14px "DM Sans", sans-serif;
+
   cursor: pointer;
 }
 
@@ -776,9 +566,12 @@ h1 {
 
 .form-grid {
   border: 1px solid #d3d5d3;
+
   padding: 32px;
+
   display: grid;
   grid-template-columns: 1fr 1fr;
+
   gap: 25px;
   margin-bottom: 25px;
 }
@@ -787,7 +580,9 @@ label {
   font-size: 11px;
   letter-spacing: 3px;
   font-weight: 700;
+
   color: #697785;
+
   display: flex;
   flex-direction: column;
   gap: 10px;
@@ -796,10 +591,18 @@ label {
 input,
 textarea {
   font: 15px "DM Sans", sans-serif;
+
   padding: 16px;
+
   border: 1px solid #cfd3d2;
   background: white;
+
   outline: none;
+}
+
+input:focus,
+textarea:focus {
+  border-color: #182b3d;
 }
 
 textarea {
@@ -819,6 +622,11 @@ textarea {
   padding: 17px 28px;
 }
 
+#formMessage {
+  margin-top: 15px;
+  font-weight: 600;
+}
+
 
 /* =========================
    OFFICES
@@ -831,7 +639,9 @@ textarea {
 .office-grid {
   display: grid;
   grid-template-columns: 1fr 1fr;
+
   border: 1px solid #d1d3d1;
+
   margin-top: 50px;
 }
 
@@ -841,13 +651,15 @@ textarea {
 }
 
 .office-grid > div:last-child {
-  border: 0;
+  border-right: 0;
 }
 
 .office-grid p {
   font-size: 18px;
   line-height: 1.55;
+
   color: #64717c;
+
   min-height: 110px;
 }
 
@@ -859,12 +671,14 @@ textarea {
 footer {
   background: #182b3d;
   color: #dce1e5;
+
   padding: 70px 5% 25px;
 }
 
 .footer-grid {
   display: grid;
   grid-template-columns: 1.5fr 1fr 1fr 1.2fr;
+
   gap: 60px;
 }
 
@@ -887,6 +701,10 @@ footer {
   color: #c0c8cf;
 }
 
+.footer-grid a:hover {
+  color: white;
+}
+
 .footer-grid .eyebrow {
   color: #8d9aa5;
   margin-bottom: 10px;
@@ -894,27 +712,292 @@ footer {
 
 .copyright {
   border-top: 1px solid #334657;
+
   margin-top: 50px;
   padding-top: 25px;
+
   color: #94a0aa;
   font-size: 13px;
 }
 
-#formMessage {
-  margin-top: 15px;
+
+/* =========================
+   JOEY AI CHATBOT
+========================= */
+
+.joey-widget {
+  position: fixed;
+
+  right: 30px;
+  bottom: 30px;
+
+  z-index: 99999;
+}
+
+.joey-button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  gap: 10px;
+
+  background: #182b3d;
+  color: white;
+
+  border: none;
+
+  padding: 16px 22px;
+
+  font-family: "DM Sans", sans-serif;
+  font-size: 14px;
   font-weight: 600;
+
+  cursor: pointer;
+
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.18);
+
+  transition: 0.2s ease;
+}
+
+.joey-button:hover {
+  transform: translateY(-2px);
+  background: #263e54;
+}
+
+.joey-icon {
+  font-size: 18px;
+}
+
+
+/* CHAT WINDOW */
+
+.joey-chat {
+  position: absolute;
+
+  right: 0;
+  bottom: 72px;
+
+  width: 380px;
+  max-width: calc(100vw - 40px);
+  height: 520px;
+
+  background: #faf9f6;
+
+  border: 1px solid #d7d8d5;
+
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.25);
+
+  display: flex;
+  flex-direction: column;
+
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+
+  transform: translateY(20px);
+
+  transition:
+    opacity 0.25s ease,
+    transform 0.25s ease,
+    visibility 0.25s ease;
+}
+
+.joey-chat.open {
+  opacity: 1;
+  visibility: visible;
+  pointer-events: auto;
+
+  transform: translateY(0);
+}
+
+
+/* JOEY HEADER */
+
+.joey-header {
+  background: #182b3d;
+  color: white;
+
+  padding: 20px;
+
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.joey-avatar {
+  width: 42px;
+  height: 42px;
+
+  border-radius: 50%;
+
+  background: #f4f3f0;
+  color: #182b3d;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  font-family: "Playfair Display", serif;
+  font-size: 22px;
+}
+
+.joey-header strong {
+  display: block;
+  font-size: 16px;
+}
+
+.joey-header span {
+  display: block;
+
+  font-size: 11px;
+
+  color: #b8c1ca;
+  margin-top: 3px;
+}
+
+#closeJoey {
+  margin-left: auto;
+
+  background: transparent;
+  border: 0;
+
+  color: white;
+
+  font-size: 27px;
+  line-height: 1;
+
+  cursor: pointer;
+}
+
+
+/* JOEY MESSAGES */
+
+.joey-messages {
+  flex: 1;
+
+  overflow-y: auto;
+
+  padding: 20px;
+
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+
+  background: #f4f3f0;
+}
+
+.joey-message {
+  max-width: 85%;
+
+  padding: 13px 16px;
+
+  line-height: 1.5;
+  font-size: 14px;
+}
+
+.joey-message.bot {
+  background: white;
+  color: #243548;
+
+  align-self: flex-start;
+
+  border: 1px solid #e0e1de;
+}
+
+.joey-message.user {
+  background: #182b3d;
+  color: white;
+
+  align-self: flex-end;
+}
+
+
+/* JOEY SUGGESTIONS */
+
+.joey-suggestions {
+  padding: 12px 15px;
+
+  display: flex;
+  gap: 7px;
+  flex-wrap: wrap;
+
+  border-top: 1px solid #dedfdb;
+
+  background: #faf9f6;
+}
+
+.joey-suggestions button {
+  background: white;
+
+  border: 1px solid #ccd0d0;
+
+  padding: 8px 10px;
+
+  font-family: "DM Sans", sans-serif;
+  font-size: 11px;
+
+  color: #263647;
+
+  cursor: pointer;
+
+  transition: 0.2s ease;
+}
+
+.joey-suggestions button:hover {
+  background: #182b3d;
+  color: white;
+}
+
+
+/* JOEY INPUT */
+
+.joey-input {
+  display: flex;
+
+  padding: 15px;
+
+  border-top: 1px solid #dedfdb;
+
+  background: white;
+}
+
+.joey-input input {
+  flex: 1;
+
+  border: 1px solid #ccd0d0;
+
+  padding: 12px;
+
+  font-family: "DM Sans", sans-serif;
+}
+
+.joey-input button {
+  width: 48px;
+
+  border: none;
+
+  margin-left: 8px;
+
+  background: #182b3d;
+  color: white;
+
+  font-size: 18px;
+
+  cursor: pointer;
 }
 
 
 /* =========================
-   MOBILE
+   TABLET
 ========================= */
 
 @media (max-width: 900px) {
 
   .hero-new {
     grid-template-columns: 1fr;
+
     gap: 45px;
+
     padding: 70px 7%;
   }
 
@@ -938,6 +1021,10 @@ footer {
 
 }
 
+
+/* =========================
+   MOBILE
+========================= */
 
 @media (max-width: 800px) {
 
@@ -1005,252 +1092,50 @@ footer {
     gap: 38px;
   }
 
-  h1 {
-    font-size: clamp(48px, 14vw, 68px);
+  .hero-new h1 {
+    font-size: clamp(52px, 12vw, 76px);
   }
 
-  .hero p,
+  .hero-new p,
   .contact-banner p {
     font-size: 17px;
   }
 
+}
+
+
+/* =========================
+   SMALL MOBILE + JOEY
+========================= */
+
+@media (max-width: 600px) {
+
+  .hero-new {
+    padding: 65px 7%;
+  }
+
   .hero-visual {
-    height: 390px;
+    height: 380px;
   }
 
   .hero-card {
-    padding: 15px 18px;
-    min-width: 140px;
+    padding: 18px 20px;
+    min-width: 150px;
   }
 
   .hero-card strong {
-    font-size: 24px;
+    font-size: 26px;
+  }
+
+  .hero-card-one {
+    left: 10px;
+    bottom: 15px;
   }
 
   .hero-card-two {
-    top: auto;
-    bottom: 20px;
+    right: 10px;
+    top: 15px;
   }
-
-}
-/* =========================
-   JOEY AI CHATBOT
-========================= */
-
-.joey-widget {
-  position: fixed;
-  right: 28px;
-  bottom: 28px;
-  z-index: 9999;
-  font-family: "DM Sans", sans-serif;
-}
-
-/* CHAT WINDOW */
-
-.joey-chat {
-  position: absolute;
-  right: 0;
-  bottom: 72px;
-  width: 380px;
-  max-width: calc(100vw - 40px);
-  height: 520px;
-
-  background: #faf9f6;
-  border: 1px solid #d7d8d5;
-  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.22);
-
-  display: flex;
-  flex-direction: column;
-
-  opacity: 0;
-  visibility: hidden;
-  transform: translateY(20px);
-  transition: 0.25s ease;
-}
-
-.joey-chat.open {
-  opacity: 1;
-  visibility: visible;
-  transform: translateY(0);
-}
-
-/* HEADER */
-
-.joey-header {
-  background: #182b3d;
-  color: white;
-  padding: 20px;
-
-  display: flex;
-  align-items: center;
-  gap: 12px;
-}
-
-.joey-avatar {
-  width: 42px;
-  height: 42px;
-
-  border-radius: 50%;
-  background: #f4f3f0;
-  color: #182b3d;
-
-  display: flex;
-  align-items: center;
-  justify-content: center;
-
-  font-family: "Playfair Display", serif;
-  font-size: 22px;
-}
-
-.joey-header strong {
-  display: block;
-  font-size: 16px;
-}
-
-.joey-header span {
-  display: block;
-  font-size: 11px;
-  color: #b8c1ca;
-  margin-top: 3px;
-}
-
-#closeJoey {
-  margin-left: auto;
-  background: transparent;
-  border: 0;
-  color: white;
-  font-size: 27px;
-  cursor: pointer;
-}
-
-/* MESSAGES */
-
-.joey-messages {
-  flex: 1;
-  overflow-y: auto;
-  padding: 20px;
-
-  display: flex;
-  flex-direction: column;
-  gap: 12px;
-
-  background: #f4f3f0;
-}
-
-.joey-message {
-  max-width: 85%;
-  padding: 13px 16px;
-  line-height: 1.5;
-  font-size: 14px;
-}
-
-.joey-message.bot {
-  background: white;
-  color: #243548;
-  align-self: flex-start;
-  border: 1px solid #e0e1de;
-}
-
-.joey-message.user {
-  background: #182b3d;
-  color: white;
-  align-self: flex-end;
-}
-
-/* SUGGESTION BUTTONS */
-
-.joey-suggestions {
-  padding: 12px 15px;
-  display: flex;
-  gap: 7px;
-  flex-wrap: wrap;
-
-  border-top: 1px solid #dedfdb;
-  background: #faf9f6;
-}
-
-.joey-suggestions button {
-  background: white;
-  border: 1px solid #ccd0d0;
-  padding: 8px 10px;
-
-  font-family: "DM Sans", sans-serif;
-  font-size: 11px;
-  color: #263647;
-
-  cursor: pointer;
-}
-
-.joey-suggestions button:hover {
-  background: #182b3d;
-  color: white;
-}
-
-/* INPUT */
-
-.joey-input {
-  display: flex;
-  padding: 15px;
-  gap: 10px;
-
-  background: white;
-  border-top: 1px solid #dedfdb;
-}
-
-.joey-input input {
-  flex: 1;
-  border: 1px solid #cfd3d2;
-  padding: 13px;
-
-  font-family: "DM Sans", sans-serif;
-  font-size: 14px;
-}
-
-.joey-input button {
-  width: 48px;
-  border: 0;
-
-  background: #182b3d;
-  color: white;
-
-  font-size: 22px;
-  cursor: pointer;
-}
-
-/* FLOATING BUTTON */
-
-.joey-button {
-  background: #182b3d;
-  color: white;
-
-  border: 0;
-  padding: 16px 21px;
-
-  display: flex;
-  align-items: center;
-  gap: 10px;
-
-  font-family: "DM Sans", sans-serif;
-  font-weight: 600;
-  font-size: 14px;
-
-  cursor: pointer;
-  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.22);
-
-  transition: 0.25s ease;
-}
-
-.joey-button:hover {
-  transform: translateY(-3px);
-}
-
-.joey-icon {
-  font-size: 18px;
-}
-
-/* MOBILE */
-
-@media (max-width: 600px) {
 
   .joey-widget {
     right: 15px;
@@ -1259,286 +1144,11 @@ footer {
 
   .joey-chat {
     width: calc(100vw - 30px);
+
     height: 70vh;
+
+    right: 0;
     bottom: 68px;
-  }
-
-  .joey-button span:last-child {
-    display: none;
-  }
-
-  .joey-button {
-    width: 56px;
-    height: 56px;
-    border-radius: 50%;
-    padding: 0;
-    justify-content: center;
-  }
-
-}
-/* =========================
- /* =========================
-   JOEY CHATBOT
-========================= */
-
-.joey-widget {
-  position: fixed;
-  right: 30px;
-  bottom: 30px;
-  z-index: 9999;
-}
-
-/* ASK JOEY BUTTON */
-
-.joey-button {
-  background: #182b3d;
-  color: white;
-  border: none;
-  padding: 16px 22px;
-
-  display: flex;
-  align-items: center;
-  gap: 10px;
-
-  font-family: "DM Sans", sans-serif;
-  font-size: 14px;
-  font-weight: 600;
-
-  cursor: pointer;
-
-  box-shadow: 0 10px 30px rgba(0,0,0,0.2);
-}
-
-.joey-button:hover {
-  background: #243d55;
-}
-
-.joey-icon {
-  font-size: 18px;
-}
-
-/* CHAT WINDOW */
-
-.joey-chat {
-  position: absolute;
-  right: 0;
-  bottom: 72px;
-
-  width: 380px;
-  max-width: calc(100vw - 40px);
-  height: 520px;
-
-  background: #faf9f6;
-  border: 1px solid #d7d8d5;
-
-  box-shadow: 0 20px 60px rgba(0,0,0,0.22);
-
-  display: flex;
-  flex-direction: column;
-
-  opacity: 0;
-  visibility: hidden;
-
-  transform: translateY(20px);
-
-  transition: opacity 0.25s ease,
-              transform 0.25s ease,
-              visibility 0.25s;
-}
-
-.joey-chat.open {
-  opacity: 1;
-  visibility: visible;
-  transform: translateY(0);
-}
-
-/* HEADER */
-
-.joey-header {
-  background: #182b3d;
-  color: white;
-
-  padding: 20px;
-
-  display: flex;
-  align-items: center;
-  gap: 12px;
-}
-
-.joey-avatar {
-  width: 42px;
-  height: 42px;
-
-  border-radius: 50%;
-
-  background: #f4f3f0;
-  color: #182b3d;
-
-  display: flex;
-  align-items: center;
-  justify-content: center;
-
-  font-family: "Playfair Display", serif;
-  font-size: 22px;
-}
-
-.joey-header strong {
-  display: block;
-  font-size: 16px;
-}
-
-.joey-header span {
-  display: block;
-
-  font-size: 11px;
-  color: #b8c1ca;
-
-  margin-top: 3px;
-}
-
-#closeJoey {
-  margin-left: auto;
-
-  background: transparent;
-  border: none;
-
-  color: white;
-
-  font-size: 27px;
-  cursor: pointer;
-}
-
-/* MESSAGES */
-
-.joey-messages {
-  flex: 1;
-
-  overflow-y: auto;
-
-  padding: 20px;
-
-  display: flex;
-  flex-direction: column;
-
-  gap: 12px;
-
-  background: #f4f3f0;
-}
-
-.joey-message {
-  max-width: 85%;
-
-  padding: 13px 16px;
-
-  line-height: 1.5;
-  font-size: 14px;
-}
-
-.joey-message.bot {
-  background: white;
-
-  color: #243548;
-
-  align-self: flex-start;
-
-  border: 1px solid #e0e1de;
-}
-
-.joey-message.user {
-  background: #182b3d;
-
-  color: white;
-
-  align-self: flex-end;
-}
-
-/* SUGGESTIONS */
-
-.joey-suggestions {
-  padding: 12px 15px;
-
-  display: flex;
-  gap: 7px;
-  flex-wrap: wrap;
-
-  border-top: 1px solid #dedfdb;
-
-  background: #faf9f6;
-}
-
-.joey-suggestions button {
-  background: white;
-
-  border: 1px solid #ccd0d0;
-
-  padding: 8px 10px;
-
-  font-family: "DM Sans", sans-serif;
-  font-size: 11px;
-
-  color: #263647;
-
-  cursor: pointer;
-}
-
-.joey-suggestions button:hover {
-  background: #182b3d;
-  color: white;
-}
-
-/* INPUT */
-
-.joey-input {
-  display: flex;
-
-  padding: 14px;
-
-  border-top: 1px solid #dedfdb;
-
-  background: #faf9f6;
-}
-
-.joey-input input {
-  flex: 1;
-
-  border: 1px solid #ccd0d0;
-
-  padding: 12px;
-
-  font-family: "DM Sans", sans-serif;
-  font-size: 14px;
-}
-
-.joey-input button {
-  width: 48px;
-
-  border: none;
-
-  background: #182b3d;
-  color: white;
-
-  margin-left: 8px;
-
-  cursor: pointer;
-}
-
-/* MOBILE */
-
-@media (max-width: 600px) {
-
-  .joey-widget {
-    right: 15px;
-    bottom: 15px;
-  }
-
-  .joey-chat {
-    width: calc(100vw - 30px);
-    height: 70vh;
-    bottom: 68px;
-  }
-
-  .joey-button span:last-child {
-    display: none;
   }
 
   .joey-button {
@@ -1548,8 +1158,10 @@ footer {
     border-radius: 50%;
 
     padding: 0;
+  }
 
-    justify-content: center;
+  .joey-button span:last-child {
+    display: none;
   }
 
 }
