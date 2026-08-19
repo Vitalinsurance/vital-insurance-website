@@ -1001,3 +1001,218 @@ footer {
   }
 
 }
+/* =========================
+   JOEY AI ASSISTANT
+========================= */
+
+.joey-widget {
+  position: fixed !important;
+  right: 25px !important;
+  bottom: 25px !important;
+  z-index: 99999 !important;
+  font-family: "DM Sans", sans-serif;
+}
+
+.joey-button {
+  display: flex !important;
+  align-items: center !important;
+  gap: 10px !important;
+
+  background: #182b3d !important;
+  color: white !important;
+  border: none !important;
+
+  padding: 15px 20px !important;
+  border-radius: 50px !important;
+
+  font-family: "DM Sans", sans-serif !important;
+  font-size: 14px !important;
+  font-weight: 600 !important;
+
+  cursor: pointer !important;
+  box-shadow: 0 8px 25px rgba(0,0,0,.20) !important;
+}
+
+.joey-icon {
+  font-size: 18px;
+}
+
+.joey-chat {
+  position: absolute !important;
+  right: 0 !important;
+  bottom: 72px !important;
+
+  width: 380px !important;
+  max-width: calc(100vw - 40px) !important;
+  height: 520px !important;
+
+  background: #faf9f6 !important;
+  border: 1px solid #d7d8d5 !important;
+  box-shadow: 0 20px 60px rgba(0,0,0,.22) !important;
+
+  display: flex !important;
+  flex-direction: column !important;
+
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(20px);
+  transition: 0.25s ease;
+}
+
+.joey-chat.open {
+  opacity: 1 !important;
+  visibility: visible !important;
+  transform: translateY(0) !important;
+}
+
+.joey-header {
+  background: #182b3d !important;
+  color: white !important;
+  padding: 20px !important;
+
+  display: flex !important;
+  align-items: center !important;
+  gap: 12px !important;
+}
+
+.joey-avatar {
+  width: 42px !important;
+  height: 42px !important;
+  border-radius: 50% !important;
+
+  background: #f4f3f0 !important;
+  color: #182b3d !important;
+
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+
+  font-family: "Playfair Display", serif !important;
+  font-size: 22px !important;
+}
+
+.joey-header strong {
+  display: block !important;
+  font-size: 16px !important;
+}
+
+.joey-header span {
+  display: block !important;
+  font-size: 11px !important;
+  color: #b8c1ca !important;
+  margin-top: 3px !important;
+}
+
+#closeJoey {
+  margin-left: auto !important;
+  background: transparent !important;
+  border: 0 !important;
+  color: white !important;
+  font-size: 27px !important;
+  cursor: pointer !important;
+}
+
+.joey-messages {
+  flex: 1 !important;
+  overflow-y: auto !important;
+  padding: 20px !important;
+
+  display: flex !important;
+  flex-direction: column !important;
+  gap: 12px !important;
+
+  background: #f4f3f0 !important;
+}
+
+.joey-message {
+  max-width: 85% !important;
+  padding: 13px 16px !important;
+  line-height: 1.5 !important;
+  font-size: 14px !important;
+  border-radius: 12px !important;
+}
+
+.joey-message.bot {
+  background: white !important;
+  color: #243548 !important;
+  align-self: flex-start !important;
+  border: 1px solid #e0e1de !important;
+}
+
+.joey-message.user {
+  background: #182b3d !important;
+  color: white !important;
+  align-self: flex-end !important;
+}
+
+.joey-suggestions {
+  padding: 12px 15px !important;
+  display: flex !important;
+  gap: 7px !important;
+  flex-wrap: wrap !important;
+
+  border-top: 1px solid #dedfdb !important;
+  background: #faf9f6 !important;
+}
+
+.joey-suggestions button {
+  background: white !important;
+  border: 1px solid #ccd0d0 !important;
+  padding: 8px 10px !important;
+
+  font-family: "DM Sans", sans-serif !important;
+  font-size: 11px !important;
+  color: #263647 !important;
+  cursor: pointer !important;
+  border-radius: 6px !important;
+}
+
+.joey-input {
+  display: flex !important;
+  padding: 12px !important;
+  gap: 8px !important;
+  border-top: 1px solid #dedfdb !important;
+  background: white !important;
+}
+
+.joey-input input {
+  flex: 1 !important;
+  padding: 12px !important;
+  border: 1px solid #d7d8d5 !important;
+  font-family: "DM Sans", sans-serif !important;
+  font-size: 14px !important;
+}
+
+.joey-input button {
+  width: 44px !important;
+  border: none !important;
+  background: #182b3d !important;
+  color: white !important;
+  cursor: pointer !important;
+  font-size: 18px !important;
+}
+
+@media (max-width: 600px) {
+  .joey-widget {
+    right: 15px !important;
+    bottom: 15px !important;
+  }
+
+  .joey-chat {
+    width: calc(100vw - 30px) !important;
+    height: 70vh !important;
+    bottom: 68px !important;
+  }
+
+  .joey-button span:last-child {
+    display: none !important;
+  }
+
+  .joey-button {
+    width: 56px !important;
+    height: 56px !important;
+    border-radius: 50% !important;
+    padding: 0 !important;
+    justify-content: center !important;
+  }
+}
