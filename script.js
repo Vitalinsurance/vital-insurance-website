@@ -1,121 +1,97 @@
-console.log("JOEY SCRIPT LOADED");
+document.addEventListener("DOMContentLoaded", () => {
 
-document.addEventListener("DOMContentLoaded", function () {
-
+  // JOEY ELEMENTS
   const openJoey = document.getElementById("openJoey");
   const closeJoey = document.getElementById("closeJoey");
   const joeyChat = document.getElementById("joeyChat");
-
   const joeyForm = document.getElementById("joeyForm");
   const joeyInput = document.getElementById("joeyInput");
   const joeyMessages = document.getElementById("joeyMessages");
 
 
-  function addMessage(text, sender) {
+  // OPEN
+  if (openJoey) {
+    openJoey.onclick = () => {
+      joeyChat.classList.add("open");
+    };
+  }
+
+
+  // CLOSE
+  if (closeJoey) {
+    closeJoey.onclick = () => {
+      joeyChat.classList.remove("open");
+    };
+  }
+
+
+  // FUNCTION TO ADD MESSAGE
+  function addMessage(text, type) {
 
     const message = document.createElement("div");
 
-    message.className = "joey-message " + sender;
+    message.classList.add("joey-message");
+    message.classList.add(type);
 
-    message.textContent = text;
+    message.innerText = text;
 
     joeyMessages.appendChild(message);
 
     joeyMessages.scrollTop = joeyMessages.scrollHeight;
-
   }
 
 
-  /* OPEN JOEY */
-
-  if (openJoey) {
-
-    openJoey.addEventListener("click", function () {
-
-      joeyChat.classList.add("open");
-
-    });
-
-  }
-
-
-  /* CLOSE JOEY */
-
-  if (closeJoey) {
-
-    closeJoey.addEventListener("click", function () {
-
-      joeyChat.classList.remove("open");
-
-    });
-
-  }
-
-
-  /* SEND MESSAGE */
-
+  // SEND MESSAGE
   if (joeyForm) {
 
-    joeyForm.addEventListener("submit", function (event) {
+    joeyForm.onsubmit = (event) => {
 
       event.preventDefault();
 
-      const userMessage = joeyInput.value.trim();
+      const text = joeyInput.value.trim();
 
-      if (!userMessage) return;
+      if (text === "") return;
 
+      // SHOW USER MESSAGE
+      addMessage(text, "user");
 
-      /* SHOW USER MESSAGE */
-
-      addMessage(userMessage, "user");
-
-
-      /* CLEAR INPUT */
-
+      // CLEAR INPUT
       joeyInput.value = "";
 
-
-      /* JOEY REPLY */
-
-      setTimeout(function () {
+      // JOEY REPLIES
+      setTimeout(() => {
 
         addMessage(
-          "Hey! 👋 I'm Joey. Thanks for your question. I can help you understand motor insurance, business insurance, personal insurance and claims. Could you tell me a little more?",
-          "bot"
-        );
-
-      }, 600);
-
-    });
-
-  }
-
-
-  /* SUGGESTION BUTTONS */
-
-  const suggestionButtons =
-    document.querySelectorAll(".joey-suggestions button");
-
-
-  suggestionButtons.forEach(function (button) {
-
-    button.addEventListener("click", function () {
-
-      const question = button.textContent;
-
-      addMessage(question, "user");
-
-
-      setTimeout(function () {
-
-        addMessage(
-          "Sure! Joey can help with that. Tell me more about your insurance requirement and I'll guide you.",
+          "Hey! 👋 I received your message: " + text + ". Joey is working!",
           "bot"
         );
 
       }, 500);
 
-    });
+    };
+
+  }
+
+
+  // SUGGESTION BUTTONS
+  document.querySelectorAll(".joey-suggestions button").forEach((button) => {
+
+    button.onclick = () => {
+
+      const text = button.innerText;
+
+      addMessage(text, "user");
+
+      setTimeout(() => {
+
+        addMessage(
+          "Sure! I can help you with " + text + ". What would you like to know?",
+          "bot"
+        );
+
+      }, 500);
+
+    };
 
   });
 
